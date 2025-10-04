@@ -1,0 +1,116 @@
+/* ====== Reset & Base ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  background: #fafafa;
+  color: #222;
+  padding: 1rem;
+}
+
+/* ====== Container untuk gallery images ====== */
+.image-viewer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Thumbnail images */
+.image-viewer img {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.image-viewer img:hover {
+  transform: scale(1.02);
+}
+
+/* ====== Blackbox Fullscreen Overlay ====== */
+.blackbox {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.blackbox img {
+  max-width: 95vw;
+  max-height: 95vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+
+/* Saat aktif, tampilkan */
+.blackbox.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ====== Details & Summary Styling ====== */
+details {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #007acc;
+  background: #f0f8ff;
+  border-radius: 0.25rem;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+}
+
+summary::marker {
+  display: none;
+}
+
+summary::before {
+  content: "▶ ";
+  font-size: 0.9rem;
+  color: #007acc;
+  transition: transform 0.2s;
+}
+
+details[open] summary::before {
+  content: "▼ ";
+}
+
+/* ====== Responsive untuk Ponsel ====== */
+@media (max-width: 600px) {
+  .image-viewer img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 0.25rem;
+  }
+
+  .blackbox img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+}

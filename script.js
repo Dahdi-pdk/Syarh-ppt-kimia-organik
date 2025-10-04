@@ -7,53 +7,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const blackboxImg = blackbox.querySelector("img");
 
-  let scale = 1;
-  let posX = 0, posY = 0;
+  let scale = 1;       // skala zoom
+  let posX = 0, posY = 0; // posisi drag
   let isDragging = false;
   let startX, startY;
 
+  // Fungsi membuka preview
   function openBlackbox(src) {
     blackboxImg.src = src;
-    scale = 1; posX = 0; posY = 0;
+    scale = 1;
+    posX = 0;
+    posY = 0;
     applyTransform();
     blackbox.classList.add("active");
   }
 
+  // Fungsi menutup preview
   function closeBlackbox() {
     blackbox.classList.remove("active");
     blackboxImg.src = "";
   }
 
+  // Terapkan transformasi zoom & drag
   function applyTransform() {
     blackboxImg.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
     blackboxImg.style.transition = "transform 0.05s linear";
     blackboxImg.style.cursor = scale > 1 ? "grab" : "default";
   }
 
+  // Pasang event klik ke semua thumbnail
   document.querySelectorAll(".image-viewer img").forEach(img => {
-    img.addEventListener("click", () => openBlackbox(img.src));
+    img.addEventListener("click", () => {
+      openBlackbox(img.src);
+    });
   });
 
+  // Klik area luar untuk tutup
   blackbox.addEventListener("click", (e) => {
-    if (e.target === blackbox) closeBlackbox();
+    if (e.target === blackbox) {
+      closeBlackbox();
+    }
   });
 
+  // Tombol Esc untuk menutup
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeBlackbox();
   });
 
+  // Zoom dengan scroll (desktop)
   blackbox.addEventListener("wheel", (e) => {
     e.preventDefault();
     const zoomIntensity = 0.1;
     if (e.deltaY < 0) {
-      scale = Math.min(scale + zoomIntensity, 5);
+      scale = Math.min(scale + zoomIntensity, 5); // max 5x
     } else {
-      scale = Math.max(scale - zoomIntensity, 1);
-      if (scale === 1) { posX = 0; posY = 0; }
+      scale = Math.max(scale - zoomIntensity, 1); // min 1x
+      if (scale === 1) {
+        posX = 0; posY = 0; // reset posisi kalau balik normal
+      }
     }
     applyTransform();
   });
 
+  // Drag dengan mouse
   blackboxImg.addEventListener("mousedown", (e) => {
     if (scale > 1) {
       isDragging = true;

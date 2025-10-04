@@ -114,3 +114,75 @@ details[open] summary::before {
     border-radius: 0;
   }
 }
+
+
+.blackbox img {
+  max-width: 95vw;
+  max-height: 95vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+
+
+ul{
+  padding-left: 5px;
+}
+
+
+/* ============================= Untuk garis hr ===================================*/
+/* Garis tipis dengan warna lembut */
+
+hr.soft-line {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 2rem 0;
+}
+
+/* Garis gradient */
+hr.gradient {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #00b4db, #0083b0);
+  margin: 2rem 0;
+  border-radius: 2px;
+}
+
+/* Garis putus-putus */
+hr.dashed {
+  border: none;
+  border-top: 2px dashed #aaa;
+  margin: 2rem 0;
+}
+
+
+
+/*==================== Divider ================*/
+.divider-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0;
+  color: #666;
+}
+.divider-top{
+  margin: 0.3rem 0;
+}
+.divider-text::before,
+.divider-text::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.divider-text:not(:empty)::before {
+  margin-right: .75em;
+}
+.divider-text:not(:empty)::after {
+  margin-left: .75em;
+}
+/*==================== END Divider =============*/

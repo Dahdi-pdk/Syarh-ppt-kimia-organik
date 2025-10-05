@@ -1,0 +1,263 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.author {
+    color: #95a5a6;
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Styling untuk details/summary */
+/* details {
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+summary {
+    padding: 18px 20px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background 0.3s ease;
+}
+
+summary:hover {
+    background: linear-gradient(135deg, #2980b9, #2573a7);
+}
+
+details[open] summary {
+    background: linear-gradient(135deg, #2980b9, #21618c);
+}
+
+.content-section {
+    padding: 25px;
+} */
+
+h2, h3 {
+    color: #2980b9;
+    margin-top: 0;
+}
+
+h3 {
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: #16a085;
+    margin-bottom: 15px;
+}
+
+/* Styling untuk tabel responsif */
+.table-container {
+    width: 100%;
+    overflow-x: scroll;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th, td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+th {
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e8f4fc;
+    transition: background-color 0.2s ease;
+}
+
+/* Highlight boxes */
+.highlight {
+    background-color: #e8f6f3;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #1abc9c;
+    margin: 20px 0;
+}
+
+.highlight h4 {
+    color: #16a085;
+    margin-top: 0;
+}
+
+/* Lists styling */
+ul, ol {
+    padding-left: 24px;
+    margin: 15px 0;
+}
+
+li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ecf0f1;
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+/* Media queries untuk responsivitas */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .content-section {
+        padding: 20px 15px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    h2, h3 {
+        font-size: 1.3em;
+    }
+    
+    summary {
+        padding: 16px 18px;
+        font-size: 1em;
+    }
+    
+    th, td {
+        padding: 12px 14px;
+        font-size: 0.9em;
+    }
+    
+    .table-container {
+        border: none;
+        border-radius: 0;
+        margin: 15px -15px;
+    }
+    
+    table {
+        min-width: 700px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+    
+    .content-section {
+        padding: 15px 12px;
+    }
+    
+    summary {
+        padding: 14px 16px;
+        font-size: 0.95em;
+    }
+    
+    th, td {
+        padding: 10px 12px;
+        font-size: 0.85em;
+    }
+    
+    h1 {
+        font-size: 1.3em;
+    }
+    
+    h2, h3 {
+        font-size: 1.2em;
+    }
+    
+    .highlight {
+        padding: 15px;
+    }
+}
+
+/* Animasi smooth untuk details */
+details {
+    transition: all 0.3s ease;
+}
+
+details[open] {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Scrollbar styling untuk tabel */
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
